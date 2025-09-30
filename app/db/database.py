@@ -1,21 +1,20 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
-from app.core.config import settings
+# Database module - Main entry point
+from app.db.core.database import engine, SessionLocal, Base, get_db, create_tables, drop_tables
+from app.db.core.session import get_db_session, get_db_session_manual, DatabaseManager
+from app.db.models import Evento, RecordatorioDolar, Dolar
 
-# Motor de la BD
-engine = create_engine(settings.database_url, echo=True)
-
-# Sesión (cada request obtiene su propia)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# Base para heredar en modelos
-Base = declarative_base()
-Base.metadata.create_all(bind=engine)
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+# Re-export everything for backward compatibility
+__all__ = [
+    'engine',
+    'SessionLocal',
+    'Base', 
+    'get_db',
+    'create_tables',
+    'drop_tables',
+    'get_db_session',
+    'get_db_session_manual',
+    'DatabaseManager',
+    'Evento',
+    'RecordatorioDolar', 
+    'Dolar'
+]

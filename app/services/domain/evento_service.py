@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.db.repositories.evento_repository import EventoRepository
+from app.repository.evento_repository import EventoRepository
 from app.schemas.evento import EventoCreate
 
 class EventoService:

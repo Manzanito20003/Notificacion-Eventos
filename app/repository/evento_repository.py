@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from app.db.models import Evento
+from datetime import date, time
 
 class EventoRepository:
     def __init__(self, db: Session):
@@ -21,7 +22,7 @@ class EventoRepository:
             title=title,
             body=body,
             fecha=fecha,
-            hora=hora
+            hora=time(hora)
         )
         self.db.add(evento)
         self.db.commit()

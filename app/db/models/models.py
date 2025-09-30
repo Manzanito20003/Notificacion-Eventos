@@ -21,11 +21,12 @@ class RecordatorioDolar(Base):
     __tablename__ = "recordatorios_dolar"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    numero = Column(String)
     nombre = Column(String, nullable=False)        # {{1}}
     movimiento = Column(String, nullable=False)    # {{2}}
     porcentaje = Column(String, nullable=False)    # {{3}}
     valor = Column(String, nullable=False)         # {{4}}
-    fecha = Column(String, nullable=False)         # {{5}}
+    #fecha = Column(String, nullable=False)         # {{5}}
     created_at = Column(DateTime, default=datetime.utcnow)
 
 

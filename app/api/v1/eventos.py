@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db.database import get_db
-from app.services.evento_service import EventoService
+from app.services.domain.evento_service import EventoService
 from app.schemas.evento import EventoCreate
 router = APIRouter()
 
