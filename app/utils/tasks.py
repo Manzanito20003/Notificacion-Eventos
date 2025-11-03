@@ -8,7 +8,7 @@ def run_scraper_and_save():
     session = get_db_session()()
     data = get_today_exchange_rate()
     if not data:
-        return "❌ No se pudo obtener datos"
+        return "No se pudo obtener datos"
 
     fecha = datetime.strptime(data["fecha"], "%d").date().replace(
         year=datetime.today().year, month=datetime.today().month
@@ -25,4 +25,4 @@ def run_scraper_and_save():
     session.merge(dolar)
     session.commit()
     session.close()
-    return f"✅ Guardado {fecha}: C={dolar.precio_compra}, V={dolar.precio_venta}"
+    return f"Guardado {fecha}: C={dolar.precio_compra}, V={dolar.precio_venta}"

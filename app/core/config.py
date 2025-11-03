@@ -23,7 +23,9 @@ class Settings(BaseSettings):
 
     TOKEN_SUNAT_API: str
 
-    
+    EMAIL_USER: str
+    EMAIL_PASS: str
+    EMAIL_TO: str
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
     @property

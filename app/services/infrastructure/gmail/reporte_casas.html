@@ -1,0 +1,29 @@
+<html>
+<body style="font-family: Arial; background-color:#f5f5f5; padding:20px;">
+  <div style="max-width:600px; margin:auto; background:white; border-radius:10px; padding:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center; color:#0077cc;">💸 Informe Diario - Casas de Cambio ({{fecha}})</h2>
+
+    <p style="font-size:15px;">Estas son las 3 mejores tasas de cambio hoy:</p>
+    <h3>🏦 Compra</h3>
+    <ul>
+      {{top3_compra}}
+    </ul>
+    <h3>💰 Venta</h3>
+    <ul>
+      {{top3_venta}}
+    </ul>
+
+    <p style="font-size:15px; margin-top:10px;">
+      📈 <b>Mejor casa para comprar:</b> {{mejor_compra}} <br>
+      📉 <b>Mejor casa para vender:</b> {{mejor_venta}}
+    </p>
+
+    <p style="margin-top:15px; font-size:14px;">
+      💹 <b>Oportunidad de arbitraje:</b> {{arbitraje_texto}}
+    </p>
+
+    <hr>
+    <p style="font-size:12px; text-align:center; color:gray;">Enviado automáticamente por tu bot de Python 🐍</p>
+  </div>
+</body>
+</html>
