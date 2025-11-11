@@ -3,12 +3,18 @@ import os
 from app.services.infrastructure.gmail.mailer import GmailMailer
 from app.scraper.top_3_cambio import get_exchange_rates_casas, top_3_mejores_casas, arbitraje_posible
 from app.core.config import settings
+from app.scraper.get_sunat_dolar import dolar_sunat_today
 
 def send_gmail_with_dolar():
     casas = get_exchange_rates_casas()
     if not casas:
         print("❌ No se pudieron obtener las casas de cambio.")
         return
+    
+    #referencia Sunat
+    s_data=dolar_sunat_today()
+    s_compra=s_data['compra']
+    s_venta=s_data['venta']
 
     # obtiene min_v (mejor venta), max_c (mejor compra), y si hay arbitraje posible
     min_v, max_c, posible = arbitraje_posible(casas)
@@ -43,6 +49,8 @@ def send_gmail_with_dolar():
         html.replace("{{fecha}}", datetime.now().strftime("%d/%m/%Y"))
         .replace("{{top3_compra}}", top3_compra_html)
         .replace("{{top3_venta}}", top3_venta_html)
+        .replace("{{sunat_compra}}", f"{s_compra} PEN")
+        .replace("{{sunat_venta}}", f"{s_venta} PEN")
         .replace("{{mejor_compra}}", f"{max_c['nombre']} ({max_c['compra']} PEN)")
         .replace("{{mejor_venta}}", f"{min_v['nombre']} ({min_v['venta']} PEN)")
         .replace("{{arbitraje_texto}}", arbitraje_txt)

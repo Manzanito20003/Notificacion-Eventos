@@ -1,29 +1,76 @@
 <html>
-<body style="font-family: Arial; background-color:#f5f5f5; padding:20px;">
-  <div style="max-width:600px; margin:auto; background:white; border-radius:10px; padding:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-    <h2 style="text-align:center; color:#0077cc;">💸 Informe Diario - Casas de Cambio ({{fecha}})</h2>
+  <body style="font-family:'Segoe UI', Arial, sans-serif; background-color:#f4f7fb; padding:30px;">
+    <div style="max-width:650px; margin:auto; background:white; border-radius:15px; padding:25px 30px; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
+      
+      <!-- 🧾 Encabezado -->
+      <div style="text-align:center; margin-bottom:20px;">
+        <h2 style="color:#0077cc; margin-bottom:5px;">💸 Informe Diario - Casas de Cambio del Dólar</h2>
+        <p style="color:#555; font-size:14px;">📅 {{fecha}}</p>
+      </div>
 
-    <p style="font-size:15px;">Estas son las 3 mejores tasas de cambio hoy:</p>
-    <h3>🏦 Compra</h3>
-    <ul>
-      {{top3_compra}}
-    </ul>
-    <h3>💰 Venta</h3>
-    <ul>
-      {{top3_venta}}
-    </ul>
+      <!-- 🔁 Intro -->
+      <div style="background:#eaf4ff; border-radius:10px; padding:12px 18px; margin-bottom:20px; font-size:15px;">
+        🔁 Estas son las <b>3 mejores tasas de cambio</b> de hoy
+      </div>
 
-    <p style="font-size:15px; margin-top:10px;">
-      📈 <b>Mejor casa para comprar:</b> {{mejor_compra}} <br>
-      📉 <b>Mejor casa para vender:</b> {{mejor_venta}}
-    </p>
+      <!-- 🏦 Mejores tasas -->
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <!-- Compra -->
+        <div style="flex:1; background:#f0f7ff; border-radius:12px; padding:15px;">
+          <h3 style="color:#0066cc; margin-bottom:10px;">💱 Compra</h3>
+          <ul style="list-style:none; padding:0; margin:0; font-size:15px; color:#333; line-height:1.8;">
+            {{top3_compra}}
+          </ul>
+        </div>
 
-    <p style="margin-top:15px; font-size:14px;">
-      💹 <b>Oportunidad de arbitraje:</b> {{arbitraje_texto}}
-    </p>
+        <!-- Venta -->
+        <div style="flex:1; background:#fff9e6; border-radius:12px; padding:15px;">
+          <h3 style="color:#cc8500; margin-bottom:10px;">💰 Venta</h3>
+          <ul style="list-style:none; padding:0; margin:0; font-size:15px; color:#333;">
+            {{top3_venta}}
+          </ul>
+        </div>
+      </div>
 
-    <hr>
-    <p style="font-size:12px; text-align:center; color:gray;">Enviado automáticamente por tu bot de Python 🐍</p>
-  </div>
-</body>
+      <!-- 📊 SUNAT -->
+      <div style="margin-top:25px; background:#e0f2fe; border-left:5px solid #0284c7; border-radius:10px; padding:18px 22px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+        <h3 style="color:#0369a1; margin:0 0 8px 0; font-weight:600;">🏛️ Tipo de cambio de referencia SUNAT</h3>
+        <div style="display:flex; justify-content:space-between; max-width:300px; font-size:15px; margin-top:8px;">
+          <p style="margin:0;">💵 <b>Compra:</b></p>
+          <p style="margin:0; color:#0077cc;">{{sunat_compra}} PEN</p>
+        </div>
+        <div style="display:flex; justify-content:space-between; max-width:300px; font-size:15px; margin-top:4px;">
+          <p style="margin:0;">💵 <b>Venta:</b></p>
+          <p style="margin:0; color:#cc8500;">{{sunat_venta}} PEN</p>
+        </div>
+        <p style="font-size:12px; margin-top:10px; color:#555;">
+          Fuente: <a href="https://api.apis.net.pe/v1/tipo-cambio-sunat" style="color:#0077cc; text-decoration:none;">SUNAT vía apis.net.pe</a>
+        </p>
+      </div>
+
+      <!-- 🏦 Mejores casas -->
+      <div style="margin-top:25px; background:#f8fafc; border-radius:10px; padding:15px;">
+        <p style="font-size:15px; margin:5px 0;">
+          🏦 <b>Mejor casa para comprar:</b> <span style="color:#0077cc;">{{mejor_compra}}</span>
+        </p>
+        <p style="font-size:15px; margin:5px 0;">
+          💹 <b>Mejor casa para vender:</b> <span style="color:#cc8500;">{{mejor_venta}}</span>
+        </p>
+      </div>
+
+      <!-- ⚖️ Arbitraje -->
+      <div style="margin-top:20px; background:#f1f5f9; border-radius:10px; padding:15px;">
+        <p style="font-size:14px; margin:0;">
+          ⚖️ <b>Oportunidad de arbitraje:</b> {{arbitraje_texto}}
+        </p>
+      </div>
+
+      <!-- 📬 Pie -->
+      <hr style="margin:25px 0; border:none; border-top:1px solid #e5e7eb;">
+      <p style="font-size:12px; text-align:center; color:#6b7280;">
+        📬 Enviado automáticamente por tu <b>bot de Python</b> 🐍<br>
+        Actualizado en tiempo real • Próxima actualización en 24 horas
+      </p>
+    </div>
+  </body>
 </html>

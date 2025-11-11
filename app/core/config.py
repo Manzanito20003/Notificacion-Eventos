@@ -27,12 +27,25 @@ class Settings(BaseSettings):
     EMAIL_PASS: str
     EMAIL_TO: str
 
+    SUPABASE_USER: str = "postgres"
+    SUPABASE_PASSWORD: str
+    SUPABASE_HOST: str 
+    SUPABASE_PORT: int = 5432
+    SUPABASE_DB: str = "postgres"
+
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
     @property
     def database_url(self) -> str:
         return (
             f"postgresql://{self.DB_USER}:{self.DB_PASSWORD}"
             f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        )
+    @property
+    def supabase_database_url(self):
+        return (
+            f"postgresql+psycopg2://{self.SUPABASE_USER}:{self.SUPABASE_PASSWORD}"
+            f"@{self.SUPABASE_HOST}:{self.SUPABASE_PORT}/{self.SUPABASE_DB}"
         )
     
 #cache        

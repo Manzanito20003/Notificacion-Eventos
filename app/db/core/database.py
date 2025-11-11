@@ -3,13 +3,18 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from app.core.config import settings
 
 # Motor de la BD
-engine = create_engine(settings.database_url, echo=True)
-
+#engine = create_engine(settings.database_url, echo=True)
+# Supabase
+engine = create_engine(settings.supabase_database_url, echo=True)
+print("url:",settings.supabase_database_url)
 # Sesión (cada request obtiene su propia)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Base para heredar en modelos
 Base = declarative_base()
+
+
+
 
 def get_db():
     """

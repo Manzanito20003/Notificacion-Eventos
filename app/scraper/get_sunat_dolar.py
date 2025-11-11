@@ -29,8 +29,8 @@ def dolar_sunat_today():
     compra=0.0
     venta=0.0
     if response.ok:
-        print("✅ Respuesta recibida:")
-        print(response.json()) 
+        print("✅ Respuesta recibida: \nlen(response): "+str(len(response.json())))
+
         for item in response.json():
             if item['fecPublica'] == fecha:                
                 if  item['codTipo']=='V':
