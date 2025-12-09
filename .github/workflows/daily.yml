@@ -26,7 +26,10 @@ jobs:
 
       - name: Ejecutar script de correo
         env:
+          TOKEN_SUNAT_API: ${{ secrets.TOKEN_SUNAT_API }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_API_KEY: ${{ secrets.SUPABASE_API_KEY }}
         run: python -m app.services.infrastructure.test_gmail
