@@ -1,87 +1,118 @@
-<html>
-  <body style="font-family:'Segoe UI', Arial, sans-serif; background-color:#f4f7fb; padding:30px;">
-    <div style="max-width:650px; margin:auto; background:white; border-radius:15px; padding:25px 30px; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
-      
-      <!-- 🧾 Encabezado -->
-      <div style="text-align:center; margin-bottom:20px;">
-        <h2 style="color:#0077cc; margin-bottom:5px;">💸 Informe Diario - Casas de Cambio del Dólar</h2>
-        <p style="color:#555; font-size:14px;">📅 {{fecha}}</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe Diario Dólar</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; background-color: #f1f5f9; -webkit-font-smoothing: antialiased;">
+  
+  <!-- Main Wrapper -->
+  <div style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+    
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 30px 25px; text-align: center;">
+      <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">💸 Informe del Dólar</h1>
+      <p style="margin: 8px 0 0 0; color: #94a3b8; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">{{fecha}}</p>
+    </div>
+
+    <!-- Content Padding -->
+    <div style="padding: 30px;">
+
+      <!-- Intro Badge -->
+      <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; text-align: center;">
+        <p style="margin: 0; color: #475569; font-size: 14px; line-height: 1.5;">
+          📊 Resumen de las <b>mejores tasas</b> y oportunidades del mercado hoy.
+        </p>
       </div>
 
-      <!-- 🔁 Intro -->
-      <div style="background:#eaf4ff; border-radius:10px; padding:12px 18px; margin-bottom:20px; font-size:15px;">
-        🔁 Estas son las <b>3 mejores tasas de cambio</b> de hoy (con variación diaria)
+      <!-- Top 3 Section (Grid-like layout using flex/table fallback style) -->
+      <div style="margin-bottom: 30px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <!-- Buy Column -->
+            <td width="48%" valign="top" style="vertical-align: top; padding-right: 10px; display: inline-block; width: 48%; min-width: 240px; box-sizing: border-box;">
+              <div style="background-color: #f0f9ff; border: 1px solid #bae6fd; border-radius: 12px; padding: 20px;">
+                <div style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 2px solid #bae6fd; padding-bottom: 10px;">
+                  <span style="font-size: 18px; margin-right: 8px;">📉</span>
+                  <h3 style="margin: 0; color: #0284c7; font-size: 16px; text-transform: uppercase;">Compra</h3>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; color: #334155;">
+                  {{top3_compra}}
+                </ul>
+              </div>
+            </td>
+            
+            <!-- Spacer for mobile stacking (optional logic handled by inline-block width) -->
+            <td width="4%" style="font-size: 0; line-height: 0;">&nbsp;</td>
+
+            <!-- Sell Column -->
+            <td width="48%" valign="top" style="vertical-align: top; padding-left: 0; display: inline-block; width: 48%; min-width: 240px; box-sizing: border-box; margin-top: 10px;">
+              <div style="background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 20px;">
+                <div style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 2px solid #fde68a; padding-bottom: 10px;">
+                  <span style="font-size: 18px; margin-right: 8px;">📈</span>
+                  <h3 style="margin: 0; color: #d97706; font-size: 16px; text-transform: uppercase;">Venta</h3>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; color: #334155;">
+                  {{top3_venta}}
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
 
-      <!-- 🏦 Mejores tasas -->
-      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+      <!-- Sunat Section -->
+      <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin-bottom: 24px;">
+        <h3 style="margin: 0 0 15px 0; color: #1e293b; font-size: 16px; font-weight: 700;">🏛️ Tipo de Cambio SUNAT</h3>
         
-        <!-- Compra -->
-        <div style="flex:1; background:#f0f7ff; border-radius:12px; padding:15px;">
-          <h3 style="color:#0066cc; margin-bottom:10px;">💱 Compra</h3>
-          <ul style="list-style:none; padding:0; margin:0; font-size:15px; color:#333; line-height:1.8;">
-            {{top3_compra}}
-          </ul>
-        </div>
-
-        <!-- Venta -->
-        <div style="flex:1; background:#fff9e6; border-radius:12px; padding:15px;">
-          <h3 style="color:#cc8500; margin-bottom:10px;">💰 Venta</h3>
-          <ul style="list-style:none; padding:0; margin:0; font-size:15px; color:#333; line-height:1.8;">
-            {{top3_venta}}
-          </ul>
-        </div>
-
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="50%" style="padding-right: 15px; border-right: 1px solid #f1f5f9;">
+              <p style="margin: 0; font-size: 12px; color: #64748b; text-transform: uppercase;">Compra</p>
+              <div style="margin-top: 4px; font-size: 20px; font-weight: 700; color: #0f172a;">
+                {{sunat_compra}} <span style="font-size: 12px; vertical-align: middle;">{{sunat_compra_var}}</span>
+              </div>
+            </td>
+            <td width="50%" style="padding-left: 15px;">
+              <p style="margin: 0; font-size: 12px; color: #64748b; text-transform: uppercase;">Venta</p>
+              <div style="margin-top: 4px; font-size: 20px; font-weight: 700; color: #0f172a;">
+                {{sunat_venta}} <span style="font-size: 12px; vertical-align: middle;">{{sunat_venta_var}}</span>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
 
-      <!-- 📊 SUNAT -->
-      <div style="margin-top:25px; background:#e0f2fe; border-left:5px solid #0284c7; border-radius:10px; padding:18px 22px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-        <h3 style="color:#0369a1; margin:0 0 8px 0; font-weight:600;">🏛️ Tipo de cambio SUNAT (con variación)</h3>
-
-        <!-- Compra -->
-        <div style="display:flex; justify-content:space-between; max-width:380px; font-size:15px; margin-top:8px;">
-          <p style="margin:0;">💵 <b>Compra:</b></p>
-          <p style="margin:0; color:#0077cc;">
-            {{sunat_compra}} PEN
-            <span style="margin-left:5px;">{{sunat_compra_var}}</span>
-          </p>
+      <!-- Best Houses Highlight -->
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
+        <div style="flex: 1; min-width: 200px; background-color: #f8fafc; border-radius: 8px; padding: 15px; border: 1px solid #e2e8f0;">
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Mejor para <b>Comprar</b></p>
+          <p style="margin: 4px 0 0 0; font-size: 16px; font-weight: 600; color: #0284c7;">{{mejor_compra}}</p>
         </div>
-
-        <!-- Venta -->
-        <div style="display:flex; justify-content:space-between; max-width:380px; font-size:15px; margin-top:4px;">
-          <p style="margin:0;">💵 <b>Venta:</b></p>
-          <p style="margin:0; color:#cc8500;">
-            {{sunat_venta}} PEN
-            <span style="margin-left:5px;">{{sunat_venta_var}}</span>
-          </p>
+        <div style="flex: 1; min-width: 200px; background-color: #f8fafc; border-radius: 8px; padding: 15px; border: 1px solid #e2e8f0;">
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Mejor para <b>Vender</b></p>
+          <p style="margin: 4px 0 0 0; font-size: 16px; font-weight: 600; color: #d97706;">{{mejor_venta}}</p>
         </div>
-
       </div>
 
-      <!-- 🏦 Mejores casas -->
-      <div style="margin-top:25px; background:#f8fafc; border-radius:10px; padding:15px;">
-        <p style="font-size:15px; margin:5px 0;">
-          🏦 <b>Mejor casa para comprar:</b> <span style="color:#0077cc;">{{mejor_compra}}</span>
-        </p>
-        <p style="font-size:15px; margin:5px 0;">
-          💹 <b>Mejor casa para vender:</b> <span style="color:#cc8500;">{{mejor_venta}}</span>
+      <!-- Arbitrage Alert -->
+      <div style="background: #1e293b; border-radius: 8px; padding: 16px; text-align: center; color: white;">
+        <p style="margin: 0; font-size: 14px;">
+          ⚖️ <b style="color: #fbbf24;">Oportunidad:</b> {{arbitraje_texto}}
         </p>
       </div>
-
-      <!-- ⚖️ Arbitraje -->
-      <div style="margin-top:20px; background:#f1f5f9; border-radius:10px; padding:15px;">
-        <p style="font-size:14px; margin:0;">
-          ⚖️ <b>Oportunidad de arbitraje:</b> {{arbitraje_texto}}
-        </p>
-      </div>
-
-      <!-- 📬 Pie -->
-      <hr style="margin:25px 0; border:none; border-top:1px solid #e5e7eb;">
-      <p style="font-size:12px; text-align:center; color:#6b7280;">
-        📬 Enviado automáticamente por tu <b>bot de Python</b> 🐍<br>
-        Actualizado en tiempo real • Próxima actualización en 24 horas
-      </p>
 
     </div>
-  </body>
+
+    <!-- Footer -->
+    <div style="background-color: #f8fafc; padding: 20px; border-top: 1px solid #e2e8f0; text-align: center;">
+      <p style="margin: 0; font-size: 12px; color: #94a3b8; line-height: 1.6;">
+        Enviado automáticamente • Bot de Python 🐍<br>
+        Datos actualizados en tiempo real
+      </p>
+    </div>
+
+  </div>
+</body>
 </html>
