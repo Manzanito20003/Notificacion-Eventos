@@ -5,6 +5,9 @@ from app.db.supabase.config import supabase
 from datetime import datetime
 CUANTOESTAELDOLAR_URL = "https://cuantoestaeldolar.pe/"
 
+if supabase is None:
+    print("⚠️ Supabase no disponible, usando fallback...")
+
 def time_today():
     now = datetime.now()
     fecha = f"{now.year}-{now.month:02d}-{now.day:02d}"
