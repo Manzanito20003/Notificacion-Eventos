@@ -10,6 +10,17 @@ Sistema ETL (Extract, Transform, Load) automatizado que monitorea el tipo de cam
 
 > 🚀 **Proyecto en producción** - Ejecutándose automáticamente todos los días a las 13:00 (Lima) mediante GitHub Actions
 
+## 📸 Demo en Vivo
+
+### GitHub Actions - Ejecución Automática Diaria
+<img width="989" height="605" alt="GitHub Actions ejecutando el workflow diario" src="https://github.com/user-attachments/assets/52d9db4f-7ffa-4e9a-893a-6c8a51ee96d3" />
+
+### Reporte HTML - Vista Desktop
+<img width="1035" height="489" alt="Reporte de tipo de cambio en Gmail - Desktop" src="https://github.com/user-attachments/assets/e728f777-cf29-4a4c-bb23-c22dbde3d623" />
+
+### Reporte HTML - Vista Mobile (Responsive)
+<img width="315" height="455" alt="Reporte de tipo de cambio en Gmail - Mobile" src="https://github.com/user-attachments/assets/b56f7be5-85a1-43c9-98f3-910f39516cb9" />
+
 ## 🎯 Características Principales
 
 ### Extracción de Datos (Extract)
@@ -246,26 +257,9 @@ Puedes ejecutar el workflow manualmente desde GitHub:
 2. Selecciona `Notificacion-dolar-diario`
 3. Click en `Run workflow`
 
-## 📸 Demo del Sistema
+## 📧 Contenido del Reporte
 
-### GitHub Actions - Ejecución Automática
-El workflow se ejecuta diariamente de forma automática:
-
-<img width="989" height="605" alt="GitHub Actions ejecutando el workflow diario" src="https://github.com/user-attachments/assets/52d9db4f-7ffa-4e9a-893a-6c8a51ee96d3" />
-
-### Reporte por Email - Vista Desktop
-Reporte HTML profesional con análisis completo del tipo de cambio:
-
-<img width="1035" height="489" alt="Reporte de tipo de cambio en Gmail - Desktop" src="https://github.com/user-attachments/assets/e728f777-cf29-4a4c-bb23-c22dbde3d623" />
-
-### Reporte por Email - Vista Mobile
-Diseño responsive optimizado para dispositivos móviles:
-
-<img width="315" height="455" alt="Reporte de tipo de cambio en Gmail - Mobile" src="https://github.com/user-attachments/assets/b56f7be5-85a1-43c9-98f3-910f39516cb9" />
-
-### Contenido del Reporte
-
-El sistema genera reportes HTML con:
+El sistema genera reportes HTML profesionales con:
 - 📈 Tipo de cambio oficial SUNAT con variación diaria
 - 🏆 Top 3 mejores casas para comprar dólares
 - 💰 Top 3 mejores casas para vender dólares
